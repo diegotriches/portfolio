@@ -30,7 +30,6 @@
   grid-template-columns: 1fr 220px;
   gap: 3rem;
   align-items: center;
-  overflow: hidden;
 }
 
 .hero-content {
@@ -684,5 +683,108 @@
   .projeto-card,
   .btn-projeto {
     transition: none;
+  }
+}
+
+/* Dropdown de contato */
+.contact-dropdown {
+  position: relative;
+}
+
+.contact-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  min-width: 200px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  box-shadow: 0 8px 24px var(--shadow-color);
+  z-index: 10;
+  animation: dropdown-in 0.18s ease;
+}
+
+@keyframes dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  font-family: "Inter", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.contact-dropdown-item:hover {
+  background: var(--hover-bg);
+}
+
+.contact-dropdown-item-ghost {
+  border-top: 1px solid var(--border-color);
+  margin-top: 0.25rem;
+  padding-top: 0.65rem;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+}
+
+/* Badge com efeito pulsante */
+.badge-dot {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(63, 163, 77, 0.15);
+}
+
+.badge-dot-ping {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  animation: badge-pulse 1.8s ease-out infinite;
+}
+
+@keyframes badge-pulse {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge-dot-ping {
+    animation: none;
+    display: none;
+  }
+
+  .contact-dropdown-menu {
+    animation: none;
   }
 }
