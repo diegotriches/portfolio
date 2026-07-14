@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { InteractiveBackground } from "../components/InteractiveBackground";
 import { Hero } from "../components/Hero";
 import { AboutMe } from "../components/AboutMe";
 import { Informations } from "../components/Informations";
@@ -24,6 +25,7 @@ export const Index = () => {
 
   return (
     <div className="index-page">
+      <InteractiveBackground />
       <main>
         <Hero />
         <AboutMe />
