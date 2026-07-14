@@ -10,7 +10,7 @@ export const Hero = () => {
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
       >
-        <g stroke="var(--line)" strokeWidth="1" fill="var(--dot)">
+        <g stroke="var(--border-color)" strokeWidth="1" fill="var(--border-color)">
           <line x1="620" y1="60" x2="720" y2="140" />
           <line x1="720" y1="140" x2="680" y2="240" />
           <line x1="680" y1="240" x2="800" y2="280" />

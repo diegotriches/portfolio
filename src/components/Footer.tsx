@@ -1,13 +1,17 @@
+import { FaChevronUp } from "react-icons/fa";
+
 export const Footer = () => {
   return (
     <footer>
       <p>
-        &copy; 2025 <strong>Diego da Rosa Triches</strong> · Desenvolvido com HTML5, CSS3 e
-        JavaScript ·{" "}
+        &copy; 2026 <strong>Diego da Rosa Triches</strong> · Desenvolvido em React + TypeScript ·{" "}
         <a href="https://github.com/diegotriches" target="_blank" rel="noopener">
           GitHub
         </a>
       </p>
+        <button className="btn-pill btn-pill-outline">
+          <FaChevronUp />
+        </button>
     </footer>
   );
 };

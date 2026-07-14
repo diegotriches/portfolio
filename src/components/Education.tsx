@@ -6,7 +6,6 @@ const CURSOS = [
 ];
 
 const IDIOMAS = [
-  { nome: "Português", nivel: "Nativo", progresso: 100 },
   { nome: "Inglês", nivel: "Intermediário", progresso: 60 },
   { nome: "Espanhol", nivel: "Básico", progresso: 30 },
 ];

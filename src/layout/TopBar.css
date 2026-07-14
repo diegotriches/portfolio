@@ -1,29 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&display=swap");
 
 .topbar-wrapper {
-  --cream: #f3f0e7;
-  --cream-alt: #ece8db;
-  --ink: #17140f;
-  --ink-soft: #6b6558;
-  --line: #e4dfd1;
-  --accent-green: #3fa34d;
-
   position: sticky;
   top: 0;
   z-index: 100;
   padding: 0 1.5rem;
-  background: rgba(243, 240, 231, 0.85);
+  background: color-mix(in srgb, var(--bg-primary) 85%, transparent);
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
   border-bottom: 1px solid transparent;
-  transition: backdrop-filter 0.3s ease, border-color 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease,
+    border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .topbar-wrapper.scrolled {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border-color);
   box-shadow: 0 2px 12px rgba(23, 20, 15, 0.04);
 }
 
@@ -41,7 +34,7 @@
   font-weight: 700;
   font-size: 1.3rem;
   letter-spacing: -0.01em;
-  color: var(--ink);
+  color: var(--text-primary);
   margin: 0;
 }
 
@@ -53,7 +46,7 @@
 
 .navlink {
   text-decoration: none;
-  color: var(--ink-soft);
+  color: var(--text-secondary);
   font-size: 0.9rem;
   font-weight: 500;
   padding: 0.5rem 0.9rem;
@@ -62,13 +55,13 @@
 }
 
 .navlink:hover {
-  background: var(--cream-alt);
-  color: var(--ink);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 .navlink.active {
-  background: var(--ink);
-  color: var(--cream);
+  background: var(--text-primary);
+  color: var(--bg-primary);
   font-weight: 600;
 }
 
@@ -86,9 +79,9 @@
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  border: 1px solid var(--line);
-  background: var(--cream-alt);
-  color: var(--ink);
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
   cursor: pointer;
   font-size: 0.95rem;
   transition: border-color 0.2s ease, transform 0.2s ease;
@@ -96,14 +89,14 @@
 
 .theme-toggle-btn:hover,
 .menu-toggle-btn:hover {
-  border-color: var(--accent-green);
+  border-color: var(--accent-primary);
   transform: translateY(-1px);
 }
 
 .theme-toggle-btn:focus-visible,
 .menu-toggle-btn:focus-visible,
 .navlink:focus-visible {
-  outline: 2px solid var(--accent-green);
+  outline: 2px solid var(--accent-primary);
   outline-offset: 2px;
 }
 
@@ -146,8 +139,8 @@
     align-items: flex-start;
     gap: 0;
     padding: 0.5rem;
-    background: var(--cream);
-    border-bottom: 1px solid var(--line);
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;

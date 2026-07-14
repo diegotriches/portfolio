@@ -35,6 +35,17 @@ const PROJETOS = [
     codigo: "https://github.com/diegotriches/my-habits-tracker",
   },
   {
+    id: "resident-manager",
+    categorias: ["web", "pessoal"],
+    imagem: {},
+    tag: "Web · Pessoal",
+    titulo: "Resident Manager",
+    descricao: "Aplicação web voltada para o controle, cálculo, rateio e emissão de comprovantes de despesas condominiais (água, gás e taxas fixas).",
+    techs: ["React", "Drizzle", "Zod", "SQLite"],
+    demo: "#",
+    codigo: "https://github.com/diegotriches/ResidentManager",
+  },
+  {
     id: "em-breve",
     categorias: ["pessoal"],
     emBreve: true,

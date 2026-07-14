@@ -5,18 +5,20 @@
 }
 
 body.light {
-  --bg-primary: #f4f7f6;
-  --bg-secondary: #ffffff;
+  --bg-primary: #f3f0e7;
+  --bg-secondary: #ece8db;
   --bg-tertiary: #f8f9fa;
 
-  --text-primary: #2c3e50;
-  --text-secondary: #7f8c8d;
+  --text-primary: #17140f;
+  --text-secondary: #6b6558;
 
-  --border-color: #dddddd;
+  --border-color: #e4dfd1;
 
-  --shadow-color: rgba(0, 0, 0, 0.05);
+  --shadow-color: rgba(23, 20, 15, 0.05);
 
   --hover-bg: #f5f5f5;
+
+  --accent-primary: #3fa34d;
 
   --success-bg: #d4edda;
   --success-text: #155724;
@@ -42,18 +44,20 @@ body.light {
 }
 
 body.dark {
-  --bg-primary: #121212;
-  --bg-secondary: #1e1e1e;
+  --bg-primary: #17140f;
+  --bg-secondary: #221e17;
   --bg-tertiary: #2a2a2a;
 
-  --text-primary: #f5f5f5;
-  --text-secondary: #b0b0b0;
+  --text-primary: #f3f0e7;
+  --text-secondary: #a39c8a;
 
-  --border-color: #444444;
+  --border-color: #332e24;
 
   --shadow-color: rgba(0, 0, 0, 0.3);
 
   --hover-bg: #2f2f2f;
+
+  --accent-primary: #4bbf5c;
 
   --success-bg: #1e4620;
   --success-text: #c8f7c5;
@@ -79,8 +83,8 @@ body.dark {
 }
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   transition:
     background-color 0.3s,
     color 0.3s;
