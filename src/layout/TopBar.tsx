@@ -4,7 +4,12 @@ import { useTheme } from "./../context/ThemeContext";
 import { FaRegSun, FaRegMoon, FaBars, FaTimes } from "react-icons/fa";
 import "./TopBar.css";
 
-const SECTIONS = [
+type Section = {
+  id: string;
+  label: string;
+};
+
+const SECTIONS: Section[] = [
   { id: "sobre", label: "Sobre mim" },
   { id: "formacao", label: "Formação" },
   { id: "portfolio", label: "Portfólio" },
@@ -18,7 +23,7 @@ export const TopBar = () => {
 
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("sobre");
+  const [activeSection, setActiveSection] = useState<string>("sobre");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 8);
@@ -28,7 +33,11 @@ export const TopBar = () => {
 
   useEffect(() => {
     if (!isHome) return;
-    const elements = SECTIONS.map((s) => document.getElementById(s.id)).filter(Boolean);
+
+    const elements = SECTIONS.map((s) => document.getElementById(s.id)).filter(
+      (el): el is HTMLElement => el !== null
+    );
+
     if (elements.length === 0) return;
 
     const observer = new IntersectionObserver(
@@ -46,7 +55,7 @@ export const TopBar = () => {
 
   const closeMenu = () => setMenuOpen(false);
 
-  const scrollToSection = (id) => {
+  const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
