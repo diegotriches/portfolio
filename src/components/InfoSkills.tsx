@@ -1,17 +1,32 @@
-import css3 from "./../assets/css3.png";
-import git from "./../assets/git.png";
-import html5 from "./../assets/html5.png";
-import js from "./../assets/js.png";
-import react from "./../assets/react.png";
-import nodejs from "./../assets/nodejs.png";
+import {
+  SiHtml5,
+  SiCss,
+  SiJavascript,
+  SiTypescript,
+  SiGit,
+  SiReact,
+  SiNodedotjs,
+  SiPostgresql,
+  SiDocker,
+} from "react-icons/si";
+import type { IconType } from "react-icons";
 
-const SKILLS: [string, string][] = [
-  [html5, "HTML5"],
-  [css3, "CSS3"],
-  [js, "JavaScript"],
-  [git, "Git & Github"],
-  [react, "React"],
-  [nodejs, "Node.js"],
+type Skill = {
+  icon: IconType;
+  label: string;
+  color: string;
+};
+
+const SKILLS: Skill[] = [
+  { icon: SiHtml5, label: "HTML5", color: "#E34F26" },
+  { icon: SiCss, label: "CSS3", color: "#1572B6" },
+  { icon: SiJavascript, label: "Java Script", color: "#F7DF1E" },
+  { icon: SiTypescript, label: "Type Script", color: "#3178C6" },
+  { icon: SiGit, label: "Git & Github", color: "#F05032" },
+  { icon: SiReact, label: "React", color: "#61DAFB" },
+  { icon: SiNodedotjs, label: "Node.js", color: "#339933" },
+  { icon: SiPostgresql, label: "PostgreSQL", color: "#4169E1" },
+  { icon: SiDocker, label: "Docker", color: "#2496ED" },
 ];
 
 export const InfoSkills = () => {
@@ -31,7 +46,9 @@ export const InfoSkills = () => {
             </li>
             <li>
               <span className="label">Curso</span>
-              <span className="valor">Análise e Desenvolvimento de Sistemas</span>
+              <span className="valor">
+                Análise e Desenvolvimento de Sistemas
+              </span>
             </li>
             <li>
               <span className="label">Faculdade</span>
@@ -44,7 +61,11 @@ export const InfoSkills = () => {
             <li>
               <span className="label">LinkedIn</span>
               <span className="valor">
-                <a href="https://linkedin.com/in/diego-triches" target="_blank" rel="noopener">
+                <a
+                  href="https://linkedin.com/in/diego-triches"
+                  target="_blank"
+                  rel="noopener"
+                >
                   Acessar ↗
                 </a>
               </span>
@@ -55,9 +76,11 @@ export const InfoSkills = () => {
         <div className="info-skills-col">
           <h2 className="eyebrow">HABILIDADES TÉCNICAS</h2>
           <div className="skills-grid">
-            {SKILLS.map(([icon, label]) => (
+            {SKILLS.map(({ icon: Icon, label, color }) => (
               <div className="skill-item" key={label}>
-                <img src={icon} alt="" width="26" height="26" loading="lazy" />
+                <span className="skill-icon-wrap">
+                  <Icon color={color} aria-hidden="true" />
+                </span>
                 <p>{label}</p>
               </div>
             ))}
