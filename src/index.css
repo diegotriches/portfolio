@@ -5,14 +5,15 @@
 }
 
 body.light {
-  --bg-primary: #f3f0e7;
-  --bg-secondary: #ece8db;
+  --bg-primary: #f9f8f6;
+  --bg-secondary: #f0efec;
   --bg-tertiary: #f8f9fa;
 
   --text-primary: #17140f;
   --text-secondary: #6b6558;
 
-  --border-color: #e4dfd1;
+  --border-color: #e6e4de;
+  --bg-decor: #cfccc2;
 
   --shadow-color: rgba(23, 20, 15, 0.05);
 
@@ -52,12 +53,11 @@ body.dark {
   --text-secondary: #a39c8a;
 
   --border-color: #332e24;
+  --bg-decor: #4a4335;
 
   --shadow-color: rgba(0, 0, 0, 0.3);
 
   --hover-bg: #2f2f2f;
-
-  --accent-primary: #4bbf5c;
 
   --success-bg: #1e4620;
   --success-text: #c8f7c5;

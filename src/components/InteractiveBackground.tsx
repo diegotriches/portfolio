@@ -22,7 +22,7 @@ export const InteractiveBackground = () => {
     if (!ctx) return;
 
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     let particles: Particle[] = [];
@@ -33,15 +33,15 @@ export const InteractiveBackground = () => {
 
     let dotColor = "rgba(0,0,0,0.3)";
     let lineColor = "rgba(0,0,0,0.15)";
-    let accentColor = "rgba(63,163,77,0.5)";
+    let accentColor = "rgba(107,101,88,0.5)";
 
     const readThemeColors = () => {
       const styles = getComputedStyle(document.body);
-      const border = styles.getPropertyValue("--border-color").trim();
-      const accent = styles.getPropertyValue("--accent-primary").trim();
-      dotColor = border || dotColor;
-      lineColor = border || lineColor;
-      accentColor = accent || accentColor;
+      const decor = styles.getPropertyValue("--bg-decor").trim();
+      const neutral = styles.getPropertyValue("--text-secondary").trim();
+      dotColor = decor || dotColor;
+      lineColor = decor || lineColor;
+      accentColor = neutral || accentColor;
     };
 
     const createParticles = () => {
@@ -98,7 +98,7 @@ export const InteractiveBackground = () => {
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(mouse.x, mouse.y);
           ctx.strokeStyle = accentColor;
-          ctx.lineWidth = 1;
+          ctx.lineWidth = 0.2;
           ctx.stroke();
         }
 
@@ -149,7 +149,10 @@ export const InteractiveBackground = () => {
     window.addEventListener("resize", resize);
 
     const themeObserver = new MutationObserver(readThemeColors);
-    themeObserver.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+    themeObserver.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
 
     return () => {
       cancelAnimationFrame(animationId);
@@ -160,5 +163,11 @@ export const InteractiveBackground = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="interactive-background" aria-hidden="true" />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="interactive-background"
+      aria-hidden="true"
+    />
+  );
 };
