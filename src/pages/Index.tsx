@@ -2,8 +2,7 @@ import { useEffect } from "react";
 import { InteractiveBackground } from "../components/InteractiveBackground";
 import { Hero } from "../components/Hero";
 import { AboutMe } from "../components/AboutMe";
-import { Informations } from "../components/Informations";
-import { Skills } from "../components/Skills";
+import { InfoSkills } from "../components/InfoSkills";
 import { Education } from "../components/Education";
 import { Portfolio } from "../components/Portfolio";
 import { Contact } from "../components/Contact";
@@ -29,8 +28,7 @@ export const Index = () => {
       <main>
         <Hero />
         <AboutMe />
-        <Informations />
-        <Skills />
+        <InfoSkills />
         <Education />
         <Portfolio />
         <Contact />
