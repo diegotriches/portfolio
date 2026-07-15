@@ -6,6 +6,7 @@ import {
   SiGit,
   SiReact,
   SiNodedotjs,
+  SiExpress,
   SiPostgresql,
   SiDocker,
 } from "react-icons/si";
@@ -25,6 +26,7 @@ const SKILLS: Skill[] = [
   { icon: SiGit, label: "Git & Github", color: "#F05032" },
   { icon: SiReact, label: "React", color: "#61DAFB" },
   { icon: SiNodedotjs, label: "Node.js", color: "#339933" },
+  { icon: SiExpress, label: "Express", color: "#000000" },
   { icon: SiPostgresql, label: "PostgreSQL", color: "#4169E1" },
   { icon: SiDocker, label: "Docker", color: "#2496ED" },
 ];
