@@ -91,7 +91,11 @@
   font-weight: 600;
   padding: 0.75rem 1.4rem;
   border-radius: 999px;
-  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .btn-pill-solid {
@@ -206,6 +210,11 @@
   border-color: var(--accent-primary);
 }
 
+.info-lista li,
+.hero-foto {
+  transition: border-color 0.3s ease;
+}
+
 .info-skills-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -217,6 +226,15 @@
   .info-skills-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }
 
@@ -235,7 +253,9 @@
   border: 1px solid var(--border-color);
   border-radius: 4px;
   padding: 0.9rem 1rem;
-  transition: border-color 0.2s ease;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
   min-width: 0;
 }
 
@@ -472,6 +492,16 @@
   margin: 0.15rem 0 0;
 }
 
+.curso-card,
+.badge,
+.status-badge,
+.tech-tag,
+.contact-dropdown-menu {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
 .idiomas-lista {
   display: flex;
   flex-direction: column;
@@ -529,7 +559,10 @@
   background: transparent;
   color: var(--text-secondary);
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .btn-filtro:hover {
@@ -556,7 +589,10 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .projeto-card:hover {
@@ -765,7 +801,9 @@
   color: var(--text-primary);
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    color 0.3s ease;
 }
 
 .contact-dropdown-item:hover {

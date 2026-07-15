@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "./../context/ThemeContext";
 import { FaRegSun, FaRegMoon, FaBars, FaTimes } from "react-icons/fa";
@@ -25,6 +25,43 @@ export const TopBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("sobre");
 
+  const navRef = useRef<HTMLElement | null>(null);
+  const linkRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
+  const [indicator, setIndicator] = useState({
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0,
+    opacity: 0,
+  });
+
+  const measureIndicator = () => {
+    const navEl = navRef.current;
+    const activeEl = linkRefs.current[activeSection];
+    if (!navEl || !activeEl || !isHome) {
+      setIndicator((prev) => ({ ...prev, opacity: 0 }));
+      return;
+    }
+    const navRect = navEl.getBoundingClientRect();
+    const linkRect = activeEl.getBoundingClientRect();
+    setIndicator({
+      x: linkRect.left - navRect.left,
+      y: linkRect.top - navRect.top,
+      width: linkRect.width,
+      height: linkRect.height,
+      opacity: 1,
+    });
+  };
+
+  useEffect(() => {
+    measureIndicator();
+  }, [activeSection, isHome, menuOpen]);
+
+  useEffect(() => {
+    window.addEventListener("resize", measureIndicator);
+    return () => window.removeEventListener("resize", measureIndicator);
+  }, [activeSection, isHome]);
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 8);
     window.addEventListener("scroll", handleScroll);
@@ -35,7 +72,7 @@ export const TopBar = () => {
     if (!isHome) return;
 
     const elements = SECTIONS.map((s) => document.getElementById(s.id)).filter(
-      (el): el is HTMLElement => el !== null
+      (el): el is HTMLElement => el !== null,
     );
 
     if (elements.length === 0) return;
@@ -46,7 +83,7 @@ export const TopBar = () => {
           if (entry.isIntersecting) setActiveSection(entry.target.id);
         });
       },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 },
     );
 
     elements.forEach((el) => observer.observe(el));
@@ -67,11 +104,24 @@ export const TopBar = () => {
           <h2 className="logo-text">Diego Triches</h2>
         </div>
 
-        <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
+        <nav className={`nav-links ${menuOpen ? "open" : ""}`} ref={navRef}>
+          <span
+            className="nav-indicator"
+            style={{
+              transform: `translate(${indicator.x}px, ${indicator.y}px)`,
+              width: `${indicator.width}px`,
+              height: `${indicator.height}px`,
+              opacity: indicator.opacity,
+            }}
+            aria-hidden="true"
+          />
           {SECTIONS.map(({ id, label }) => (
             <Link
               key={id}
               to={`/#${id}`}
+              ref={(el) => {
+                linkRefs.current[id] = el;
+              }}
               className={`navlink ${isHome && activeSection === id ? "active" : ""}`}
               onClick={(e) => {
                 closeMenu();

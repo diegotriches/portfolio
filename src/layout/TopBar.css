@@ -36,15 +36,34 @@
   letter-spacing: -0.01em;
   color: var(--text-primary);
   margin: 0;
+  transition: color 0.3s ease;
 }
 
 .nav-links {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.25rem;
 }
 
+.nav-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--text-primary);
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 0;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.2s ease;
+}
+
 .navlink {
+  position: relative;
+  z-index: 1;
+  background: transparent;
   text-decoration: none;
   color: var(--text-secondary);
   font-size: 0.9rem;
@@ -60,9 +79,15 @@
 }
 
 .navlink.active {
-  background: var(--text-primary);
+  background: transparent;
   color: var(--bg-primary);
   font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-indicator {
+    transition: opacity 0.2s ease;
+  }
 }
 
 .topbar-actions {
@@ -84,7 +109,8 @@
   color: var(--text-primary);
   cursor: pointer;
   font-size: 0.95rem;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease, transform 0.2s ease;
 }
 
 .theme-toggle-btn:hover,
