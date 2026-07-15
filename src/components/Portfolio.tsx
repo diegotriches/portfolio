@@ -2,6 +2,19 @@ import { useState } from "react";
 import myexpenses from "../assets/myexpenses.png";
 import myhabitstracker from "../assets/myhabitstracker.jpeg";
 
+type Projeto = {
+  id: string;
+  categorias: string[];
+  imagem?: string;
+  tag: string;
+  titulo: string;
+  descricao: string;
+  techs: string[];
+  demo: string;
+  codigo: string;
+  emBreve?: boolean;
+};
+
 const FILTROS = [
   { id: "todos", label: "Todos" },
   { id: "web", label: "Web" },
@@ -9,7 +22,7 @@ const FILTROS = [
   { id: "pessoal", label: "Pessoal" },
 ];
 
-const PROJETOS = [
+const PROJETOS: Projeto[] = [
   {
     id: "myexpenses",
     categorias: ["web", "pessoal"],
@@ -37,7 +50,7 @@ const PROJETOS = [
   {
     id: "resident-manager",
     categorias: ["web", "pessoal"],
-    imagem: {},
+    imagem: myexpenses,
     tag: "Web · Pessoal",
     titulo: "Resident Manager",
     descricao: "Aplicação web voltada para o controle, cálculo, rateio e emissão de comprovantes de despesas condominiais (água, gás e taxas fixas).",
