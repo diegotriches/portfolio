@@ -1,6 +1,7 @@
 import { useState } from "react";
 import myexpenses from "../assets/myexpenses.png";
 import myhabitstracker from "../assets/myhabitstracker.jpeg";
+import residentmanager from "../assets/residentmanager.png";
 
 type Projeto = {
   id: string;
@@ -50,7 +51,7 @@ const PROJETOS: Projeto[] = [
   {
     id: "resident-manager",
     categorias: ["web", "pessoal"],
-    imagem: myexpenses,
+    imagem: residentmanager,
     tag: "Web · Pessoal",
     titulo: "Resident Manager",
     descricao: "Aplicação web voltada para o controle, cálculo, rateio e emissão de comprovantes de despesas condominiais (água, gás e taxas fixas).",
