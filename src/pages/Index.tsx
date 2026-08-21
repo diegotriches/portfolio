@@ -5,6 +5,7 @@ import { AboutMe } from "../components/AboutMe";
 import { InfoSkills } from "../components/InfoSkills";
 import { Education } from "../components/Education";
 import { Portfolio } from "../components/Portfolio";
+import { Experience } from "../components/Experience";
 import { Contact } from "../components/Contact";
 import { Footer } from "../components/Footer";
 import "./Index.css";
@@ -31,6 +32,7 @@ export const Index = () => {
         <InfoSkills />
         <Education />
         <Portfolio />
+        <Experience />
         <Contact />
       </main>
       <Footer />

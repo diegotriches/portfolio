@@ -55,7 +55,11 @@ export const Hero = () => {
         </p>
 
         <div className="hero-cta">
-          <a href="/cv.pdf" className="btn-pill btn-pill-solid">
+          <a
+            href={`${import.meta.env.BASE_URL}cv.pdf`}
+            download="Diego_da_Rosa_Triches_CV.pdf"
+            className="btn-pill btn-pill-solid"
+          >
             <span className="icon-download" aria-hidden="true">
               ↓
             </span>

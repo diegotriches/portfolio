@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "./../context/ThemeContext";
-import { FaRegSun, FaRegMoon, FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { FiSun, FiMoon  } from "react-icons/fi";
 import "./TopBar.css";
 
 type Section = {
@@ -13,6 +14,7 @@ const SECTIONS: Section[] = [
   { id: "sobre", label: "Sobre mim" },
   { id: "formacao", label: "Formação" },
   { id: "portfolio", label: "Portfólio" },
+  { id: "experiencia", label: "Experiência" },
   { id: "contato", label: "Contato" },
 ];
 
@@ -144,7 +146,7 @@ export const TopBar = () => {
             aria-label="Alternar tema"
           >
             <span key={theme} className="icon-swap">
-              {theme === "light" ? <FaRegMoon /> : <FaRegSun />}
+              {theme === "light" ? <FiMoon /> : <FiSun />}
             </span>
           </button>
 
