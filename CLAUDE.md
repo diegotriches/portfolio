@@ -1,0 +1,35 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Overview
+
+Personal portfolio site: a single-page React 19 + TypeScript app built with Vite, deployed to GitHub Pages at `https://diegotriches.github.io/portfolio/`. All UI copy is in Brazilian Portuguese, and identifiers in data objects are often Portuguese too (`PROJETOS`, `titulo`, `descricao`).
+
+## Commands
+
+- `npm run dev`: Vite dev server (served under `/portfolio/`)
+- `npm run build`: type-check (`tsc -b`), then build to `dist/`
+- `npm run lint`: ESLint (flat config in `eslint.config.js`)
+- `npm run preview`: serve the production build locally
+- `npm run deploy`: build, then publish `dist/` to the `gh-pages` branch via `gh-pages`
+
+There is no test suite. Run `npm run build` to type-check.
+
+## Architecture
+
+- **Base path `/portfolio/` is set in two places and both must match:** `base` in [vite.config.ts](vite.config.ts) and `basename` on `BrowserRouter` in [src/main.tsx](src/main.tsx). Reference files in `public/` through `import.meta.env.BASE_URL` (for example `cv.pdf` in [Hero.tsx](src/components/Hero.tsx)), not through absolute `/` paths.
+- **Single route.** [App.tsx](src/App.tsx) renders the `TopBar` plus one `/` route, [pages/Index.tsx](src/pages/Index.tsx). That page stacks the section components from `src/components/` in order and scrolls to `location.hash` on load.
+- **Section navigation is coupled by DOM ids.** `SECTIONS` in [layout/TopBar.tsx](src/layout/TopBar.tsx) lists ids (`sobre`, `formacao`, `portfolio`, `experiencia`, `contato`) that must match the `id` on each component's `<section>`. The TopBar uses an `IntersectionObserver` to highlight the active section, and it measures link rects to position the sliding `.nav-indicator`. If you add, rename, or reorder a section, update both sides.
+- **Theming.** [context/ThemeContext.tsx](src/context/ThemeContext.tsx) stores `light`/`dark` in `localStorage` and toggles a `light`/`dark` class on `<body>`. Colors are CSS custom properties defined under `body.light` and `body.dark` in [src/index.css](src/index.css). Use those variables (`--bg-primary`, `--text-primary`, `--accent-primary`, …) instead of hard-coded colors.
+- **Styling** is plain CSS, not CSS modules or Tailwind. Nearly all section styles live in one file, [src/pages/Index.css](src/pages/Index.css), split by comment headers (`/* HERO */`, `/* TIMELINE — Formação */`, …). The TopBar has its own `TopBar.css`.
+- **Content is hard-coded data arrays** inside the components (projects in `Portfolio.tsx`, timeline entries in `Education.tsx` and `Experience.tsx`). Project screenshots are imported from `src/assets/`.
+- [InteractiveBackground.tsx](src/components/InteractiveBackground.tsx) is a canvas particle animation that follows the mouse and respects `prefers-reduced-motion`.
+
+## Content and privacy
+
+- The repository is public. `CONTEXTO_CARREIRA.md` and `meu-portifolio.md` are gitignored personal notes. Never commit them, and never copy their private content into tracked files.
+- When it exists locally, `CONTEXTO_CARREIRA.md` is the source of truth for portfolio copy: positioning, project descriptions, numbers, and its "O que não afirmar" list (for example: no user-base claims, no rounding numbers up, always disclose AI-assisted development). Keep the site consistent with it, and don't invent figures. If a portfolio change affects the résumé (a new project, an updated number, a new link), tell the user so they can update the CV (`public/cv.pdf`) too.
+
+## Contexto de carreira
+Antes de alterar conteúdo do portfólio (textos, projetos, experiência, currículo), leia `CONTEXTO_CARREIRA.md`. O portfólio deve ficar coerente com o currículo descrito ali.
