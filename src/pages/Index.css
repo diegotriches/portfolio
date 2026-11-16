@@ -207,6 +207,20 @@
 }
 
 /* SECTIONS */
+/* Fade de entrada (ver hooks/useRevelar.ts) */
+.section.revelar {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.section.revelar.visivel {
+  opacity: 1;
+  transform: none;
+}
+
 .section {
   max-width: 1180px;
   margin: 0 auto;
@@ -659,11 +673,13 @@
 
 .projeto-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 0.4rem;
 }
 
 .btn-projeto {
+  white-space: nowrap;
   font-size: 0.82rem;
   font-weight: 600;
   text-decoration: none;

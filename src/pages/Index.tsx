@@ -7,9 +7,12 @@ import { Skills } from "../components/Skills";
 import { Trajectory } from "../components/Trajectory";
 import { Contact } from "../components/Contact";
 import { Footer } from "../components/Footer";
+import { useRevelar } from "../hooks/useRevelar";
 import "./Index.css";
 
 export const Index = () => {
+  useRevelar();
+
   useEffect(() => {
     if (window.location.hash) {
       const id = window.location.hash.replace("#", "");

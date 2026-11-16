@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { buscarProjeto, type Imagem } from "../data/projetos";
 import { Footer } from "../components/Footer";
+import { useRevelar } from "../hooks/useRevelar";
 import "./Index.css";
 import "./ProjectPage.css";
 
@@ -11,6 +12,7 @@ export const ProjectPage = () => {
 
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const [ampliada, setAmpliada] = useState<Imagem | null>(null);
+  useRevelar(slug);
 
   useEffect(() => {
     window.scrollTo(0, 0);
