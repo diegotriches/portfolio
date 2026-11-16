@@ -1,17 +1,18 @@
 import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
 import fotoperfil from "../assets/fotoperfil.jpg";
+import { PERFIL } from "../data/perfil";
 
 const ETIQUETAS = [
   "📍 Farroupilha · RS",
   "Remoto ou presencial",
-  "Inglês B2",
+  PERFIL.idioma,
   "CREA-RS ativo",
 ];
 
 const REDES = [
-  { href: "https://github.com/diegotriches", label: "GitHub", icon: FaGithub },
-  { href: "https://linkedin.com/in/diego-triches", label: "LinkedIn", icon: FaLinkedin },
-  { href: "mailto:diego.rtriches@gmail.com", label: "E-mail", icon: FaEnvelope },
+  { href: PERFIL.links.github, label: "GitHub", icon: FaGithub },
+  { href: PERFIL.links.linkedin, label: "LinkedIn", icon: FaLinkedin },
+  { href: `mailto:${PERFIL.email}`, label: "E-mail", icon: FaEnvelope },
 ];
 
 export const Hero = () => {
@@ -38,7 +39,7 @@ export const Hero = () => {
         </h1>
 
         <p className="hero-role">
-          Desenvolvedor Full Stack | Engenheiro Civil (CREA ativo)
+          {PERFIL.titulo}
         </p>
 
         <p className="hero-subtitle">

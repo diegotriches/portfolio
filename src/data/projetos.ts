@@ -32,6 +32,13 @@ export type Camada = {
   descricao: string;
 };
 
+export type Curriculo = {
+  /** Subtítulo ao lado do nome no CV. */
+  subtitulo: string;
+  itens: string[];
+  stack: string;
+};
+
 export type Projeto = {
   slug: string;
   imagem: string;
@@ -45,6 +52,8 @@ export type Projeto = {
   techs: string[];
   demo?: string;
   codigo?: string;
+  /** Como o projeto aparece no CV (cv.html → public/cv.pdf). */
+  curriculo: Curriculo;
   estudo: {
     periodo: string;
     contexto: string[];
@@ -90,6 +99,17 @@ export const PROJETOS: Projeto[] = [
     ],
     demo: "https://myexpenses-app-ten.vercel.app/",
     // Repositório ainda privado: adicionar `codigo` (e os `link` dos trechos) quando ficar público.
+    curriculo: {
+      subtitulo: "Aplicação web de controle financeiro",
+      itens: [
+        "Aplicação de finanças pessoais em produção, desenvolvida ao longo de um ano: 32 tabelas, 89 rotas de API, 5 rotinas agendadas e 160 testes automatizados.",
+        "Modelei o ciclo de cartão de crédito: parcelamento, antecipação de parcelas e estornos com crédito transferido entre faturas. Pagamentos e estornos rodam em transações atômicas com a fatura travada, então um clique duplo não repete a operação.",
+        "Implementei o cálculo de investimentos: rendimento diário de renda fixa com taxas do Banco Central e IR regressivo por aporte (resgate FIFO por lotes); apuração mensal do IR de renda variável, com isenção, compensação de prejuízo e geração de DARF; importação idempotente das planilhas da B3.",
+        "Qualidade de código: TypeScript estrito (246 usos de any eliminados, com lint que bloqueia novos), testes com Vitest nas regras de cálculo e CI no GitHub Actions.",
+      ],
+      stack:
+        "Next.js 16, React 19, TypeScript, PostgreSQL (Neon), Drizzle ORM, NextAuth.js, React Query, Tailwind CSS, shadcn/ui, Vitest, GitHub Actions, Vercel",
+    },
     estudo: {
       periodo: "nov/2025 – nov/2026 · 324 commits",
       contexto: [
@@ -269,6 +289,17 @@ for (const linha of entrada) {
       "EAS Build e Update",
     ],
     codigo: "https://github.com/diegotriches/my-habits-tracker",
+    curriculo: {
+      subtitulo: "Aplicativo mobile (Android/iOS)",
+      itens: [
+        "Aplicativo desenvolvido de ponta a ponta (jan–nov/2026): banco de dados, back-end serverless, módulo nativo, build e distribuição.",
+        "Arquitetura offline-first: fila de operações persistida, interface otimista e sincronização automática ao reconectar, sem perda nem duplicação, mesmo com respostas de rede fora de ordem.",
+        "Lembretes confiáveis com módulo nativo em Java (AlarmManager), com persistência e reagendamento após reinício ou atualização do app, validados em aparelho real.",
+        "Back-end seguro e testado: Row Level Security, migrations transacionais, tipos gerados do schema, exclusão de conta por Edge Function sem expor a chave administrativa e 87 testes automatizados nas regras de negócio.",
+      ],
+      stack:
+        "React Native, Expo, TypeScript, Supabase (PostgreSQL, RLS, Auth, Edge Functions em Deno), Java, Jest, GitHub Actions, EAS Build e Update",
+    },
     estudo: {
       periodo: "jan – nov/2026 · 138 commits",
       contexto: [

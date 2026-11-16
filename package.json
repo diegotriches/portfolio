@@ -9,7 +9,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
+    "cv": "node scripts/gerar-cv.mjs",
+    "predeploy": "npm run cv && npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {

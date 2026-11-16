@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { PROJETOS } from "../data/projetos";
+import { PERFIL } from "../data/perfil";
 
 export const Portfolio = () => {
   return (
@@ -7,12 +8,7 @@ export const Portfolio = () => {
       <p className="eyebrow">PROJETOS</p>
       <h2 className="section-title">Projetos em destaque</h2>
 
-      <p className="projetos-nota">
-        Os dois projetos foram desenvolvidos com apoio de IA (Claude Code). Eu
-        defini os requisitos e as decisões de produto e arquitetura, revisei e
-        integrei cada mudança, executei as migrations e validei tudo com testes
-        automatizados e testes manuais.
-      </p>
+      <p className="projetos-nota">{PERFIL.notaIA}</p>
 
       <div className="projetos-lista">
         {PROJETOS.map((projeto) => (
