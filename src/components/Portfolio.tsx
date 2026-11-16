@@ -1,85 +1,5 @@
-import myexpenses from "../assets/myexpenses.png";
-import myhabitstracker from "../assets/myhabitstracker.jpeg";
-
-type Projeto = {
-  id: string;
-  imagem: string;
-  imagemAlt: string;
-  tag: string;
-  titulo: string;
-  descricao: string;
-  numeros?: string[];
-  destaques: string[];
-  techs: string[];
-  demo?: string;
-  codigo?: string;
-};
-
-const PROJETOS: Projeto[] = [
-  {
-    id: "myexpenses",
-    imagem: myexpenses,
-    imagemAlt: "Tela do My Expenses",
-    tag: "Web · Full stack · Em produção",
-    titulo: "My Expenses",
-    descricao:
-      "Aplicação web de finanças pessoais em produção, desenvolvida ao longo de um ano, com controle de contas, cartões de crédito e investimentos.",
-    numeros: [
-      "32 tabelas",
-      "89 rotas de API",
-      "5 rotinas agendadas",
-      "160 testes automatizados",
-    ],
-    destaques: [
-      "Ciclo de cartão de crédito: parcelamento, antecipação de parcelas e estornos com crédito transferido entre faturas. Pagamentos e estornos rodam em transações atômicas com a fatura travada, então um clique duplo não repete a operação.",
-      "Investimentos: rendimento diário de renda fixa com taxas do Banco Central e IR regressivo por aporte (resgate FIFO por lotes), apuração mensal do IR de renda variável e importação idempotente das planilhas da B3.",
-      "Qualidade de código: TypeScript estrito (246 usos de any eliminados, com lint que bloqueia novos), testes com Vitest nas regras de cálculo e CI no GitHub Actions.",
-    ],
-    techs: [
-      "Next.js 16",
-      "React 19",
-      "TypeScript",
-      "PostgreSQL (Neon)",
-      "Drizzle ORM",
-      "NextAuth.js",
-      "React Query",
-      "Tailwind CSS",
-      "shadcn/ui",
-      "Vitest",
-      "GitHub Actions",
-      "Vercel",
-    ],
-    demo: "https://myexpenses-app-ten.vercel.app/",
-    // Repositório ainda privado: adicionar `codigo` quando ficar público.
-  },
-  {
-    id: "my-habits-tracker",
-    imagem: myhabitstracker,
-    imagemAlt: "Tela do My Habits Tracker",
-    tag: "Mobile · Android/iOS",
-    titulo: "My Habits Tracker",
-    descricao:
-      "Aplicativo de hábitos desenvolvido de ponta a ponta: banco de dados, back-end serverless, módulo nativo, build e distribuição.",
-    numeros: ["87 testes automatizados"],
-    destaques: [
-      "Arquitetura offline-first: fila de operações persistida, interface otimista e sincronização automática ao reconectar, sem perda nem duplicação, mesmo com respostas de rede fora de ordem.",
-      "Lembretes confiáveis com módulo nativo em Java (AlarmManager), com persistência e reagendamento após reinício ou atualização do app, validados em aparelho real.",
-      "Back-end seguro: Row Level Security, migrations transacionais, tipos gerados do schema e exclusão de conta por Edge Function sem expor a chave administrativa.",
-    ],
-    techs: [
-      "React Native",
-      "Expo",
-      "TypeScript",
-      "Supabase",
-      "Edge Functions (Deno)",
-      "Java",
-      "Jest",
-      "GitHub Actions",
-      "EAS Build e Update",
-    ],
-    codigo: "https://github.com/diegotriches/my-habits-tracker",
-  },
-];
+import { Link } from "react-router-dom";
+import { PROJETOS } from "../data/projetos";
 
 export const Portfolio = () => {
   return (
@@ -95,7 +15,7 @@ export const Portfolio = () => {
 
       <div className="projetos-lista">
         {PROJETOS.map((projeto) => (
-          <article className="projeto-card" key={projeto.id}>
+          <article className="projeto-card" key={projeto.slug}>
             <div className="projeto-thumb">
               <img src={projeto.imagem} alt={projeto.imagemAlt} />
             </div>
@@ -127,10 +47,16 @@ export const Portfolio = () => {
               </div>
 
               <div className="projeto-links">
+                <Link
+                  to={`/projetos/${projeto.slug}`}
+                  className="btn-projeto btn-demo"
+                >
+                  Ver detalhes
+                </Link>
                 {projeto.demo && (
                   <a
                     href={projeto.demo}
-                    className="btn-projeto btn-demo"
+                    className="btn-projeto btn-codigo"
                     target="_blank"
                     rel="noopener"
                   >
