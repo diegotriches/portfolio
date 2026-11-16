@@ -3,21 +3,17 @@ export const AboutMe = () => {
     <section className="section">
       <h2 className="eyebrow">SOBRE MIM</h2>
       <p className="bio">
-        Estudante de Análise e Desenvolvimento de Sistemas na Uninter,
-        possuo experiência prática no desenvolvimento de aplicações
-        utilizando JavaScript, TypeScript, Node.js e React. Atualmente
-        residindo no interior do Rio Grande do Sul, Brasil. Tenho projetos
-        próprios desenvolvidos desde o protótipo até a implementação, com
-        foco em resolver problemas reais e fortalecer meu conhecimento em
-        lógica, APIs e banco de dados.
+        Sou desenvolvedor full stack em formação, estudante de Análise e
+        Desenvolvimento de Sistemas na Uninter, e engenheiro civil com mais de
+        três anos liderando obras. Construo e mantenho aplicações completas,
+        web e mobile, com TypeScript, React, Next.js, React Native e
+        PostgreSQL, do modelo de dados ao deploy.
       </p>
       <p className="bio">
-        Gosto de criar soluções eficientes, explorar novas tecnologias e
-        evoluir de forma gradativa minhas habilidades com o mercado
-        tecnológico. Com uma postura proativa e foco em resolução de
-        problemas, busco uma oportunidade para demonstrar meu potencial,
-        contribuir com projetos relevantes e crescer como desenvolvedor de
-        sistemas.
+        Da engenharia, trago gestão de equipes e cronogramas, responsabilidade
+        técnica e o hábito de resolver problemas reais sob pressão. Busco
+        minha primeira posição como desenvolvedor, com interesse especial em
+        produtos para construção civil, arquitetura e engenharia.
       </p>
     </section>
   );

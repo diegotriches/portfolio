@@ -40,7 +40,7 @@ export const Hero = () => {
           <span className="badge-dot">
             <span className="badge-dot-ping" />
           </span>
-          Disponível para trabalho
+          Disponível para trabalho remoto
         </span>
 
         <h1>
@@ -49,9 +49,13 @@ export const Hero = () => {
           Triches
         </h1>
 
+        <p className="hero-role">
+          Desenvolvedor Full Stack | Engenheiro Civil (CREA ativo)
+        </p>
+
         <p className="hero-subtitle">
-          Desenvolvedor de Sistemas com foco em aplicações web, APIs e soluções
-          práticas com JavaScript, Node.js e React.
+          Construo aplicações completas, do modelo de dados ao deploy, com
+          TypeScript, React, Next.js e PostgreSQL.
         </p>
 
         <div className="hero-cta">

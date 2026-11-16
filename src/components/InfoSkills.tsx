@@ -1,14 +1,16 @@
 import {
-  SiHtml5,
-  SiCss,
-  SiJavascript,
   SiTypescript,
-  SiGit,
+  SiJavascript,
   SiReact,
+  SiNextdotjs,
   SiNodedotjs,
-  SiExpress,
   SiPostgresql,
-  SiDocker,
+  SiSupabase,
+  SiDrizzle,
+  SiTailwindcss,
+  SiExpo,
+  SiVitest,
+  SiGithubactions,
 } from "react-icons/si";
 import type { IconType } from "react-icons";
 
@@ -18,17 +20,20 @@ type Skill = {
   color: string;
 };
 
+// color: "currentColor" segue o tema (ícones pretos somem no modo escuro)
 const SKILLS: Skill[] = [
-  { icon: SiHtml5, label: "HTML5", color: "#E34F26" },
-  { icon: SiCss, label: "CSS3", color: "#1572B6" },
-  { icon: SiJavascript, label: "Java Script", color: "#F7DF1E" },
-  { icon: SiTypescript, label: "Type Script", color: "#3178C6" },
-  { icon: SiGit, label: "Git & Github", color: "#F05032" },
+  { icon: SiTypescript, label: "TypeScript", color: "#3178C6" },
+  { icon: SiJavascript, label: "JavaScript", color: "#F7DF1E" },
   { icon: SiReact, label: "React", color: "#61DAFB" },
+  { icon: SiNextdotjs, label: "Next.js", color: "currentColor" },
   { icon: SiNodedotjs, label: "Node.js", color: "#339933" },
-  { icon: SiExpress, label: "Express", color: "#000000" },
   { icon: SiPostgresql, label: "PostgreSQL", color: "#4169E1" },
-  { icon: SiDocker, label: "Docker", color: "#2496ED" },
+  { icon: SiSupabase, label: "Supabase", color: "#3FCF8E" },
+  { icon: SiDrizzle, label: "Drizzle ORM", color: "#84CC16" },
+  { icon: SiTailwindcss, label: "Tailwind CSS", color: "#06B6D4" },
+  { icon: SiExpo, label: "React Native / Expo", color: "currentColor" },
+  { icon: SiVitest, label: "Vitest / Jest", color: "#6E9F18" },
+  { icon: SiGithubactions, label: "Git / GitHub Actions", color: "#2088FF" },
 ];
 
 export const InfoSkills = () => {
@@ -47,14 +52,25 @@ export const InfoSkills = () => {
               <span className="valor">Farroupilha — RS</span>
             </li>
             <li>
-              <span className="label">Curso</span>
+              <span className="label">Formação</span>
+              <span className="valor">Engenheiro Civil · CREA-RS ativo</span>
+            </li>
+            <li>
+              <span className="label">Cursando</span>
               <span className="valor">
-                Análise e Desenvolvimento de Sistemas
+                Análise e Desenvolvimento de Sistemas · Uninter (3º semestre)
               </span>
             </li>
             <li>
-              <span className="label">Faculdade</span>
-              <span className="valor">Uninter</span>
+              <span className="label">Idioma</span>
+              <span className="valor">Inglês B2</span>
+            </li>
+            <li>
+              <span className="label">Disponibilidade</span>
+              <span className="valor">
+                Remoto · presencial em Farroupilha · presencial ou híbrido em
+                Caxias do Sul e Bento Gonçalves
+              </span>
             </li>
             <li>
               <span className="label">E-mail</span>

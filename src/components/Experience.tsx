@@ -1,43 +1,43 @@
 const EXPERIENCIAS = [
   {
-    periodo: "2023 — 2026",
+    periodo: "02/2023 — 06/2026",
     cargo: "Supervisor de Construção",
     empresa: "Construpred Construtora e Incorporadora",
     local: "Caxias do Sul · RS",
     descricao:
-      "Responsável pelo acompanhamento e gestão de obra de edifício residencial de 10 pavimentos, atuando no gerenciamento de equipes, controle de cronograma, qualidade, estoque e múltiplas frentes de trabalho.",
-    status: "Concluído",
-    statusClass: "status-concluido",
+      "Acompanhamento de obra de grande porte: edifício residencial de 10 pavimentos. Coordenação de equipes e de múltiplas frentes de trabalho simultâneas, com controle de cronograma, qualidade e recursos. Tomada de decisão e resolução de problemas em campo, com responsabilidade direta por prazos e pela qualidade das entregas.",
   },
   {
-    periodo: "2022 — 2023",
+    periodo: "Em paralelo à Construpred",
+    cargo: "Engenheiro Civil · Projetos residenciais",
+    empresa: "Freelance",
+    local: "Serra Gaúcha · RS",
+    descricao:
+      "Elaboração de projetos arquitetônicos residenciais e acompanhamento de três obras, do projeto à entrega. Projetos aprovados em prefeituras de três municípios da Serra Gaúcha, com obras concluídas com sucesso.",
+  },
+  {
+    periodo: "07/2022 — 01/2023",
     cargo: "Estagiário de Instalações",
     empresa: "Global América",
     local: "Caxias do Sul · RS",
     descricao:
-      "Atuação em projetos de sistemas de proteção contra incêndio, acompanhando instalações e execução de projetos para grandes clientes. Experiência com comunicação, coordenação e acompanhamento remoto de projetos.",
-    status: "Concluído",
-    statusClass: "status-concluido",
+      "Acompanhamento de projetos de instalação, atendimento a clientes e coordenação de atividades executadas remotamente.",
   },
   {
-    periodo: "2022 — 2022",
+    periodo: "01/2022 — 07/2022",
     cargo: "Assistente de Projetos",
     empresa: "Bohm Indústria",
     local: "Caxias do Sul · RS",
     descricao:
-      "Atuação no desenvolvimento e otimização de processos de montagem de estruturas de aço. Utilização de modelagem 3D com Revit para criação de projetos detalhados, facilitando a compreensão e execução dos processos produtivos.",
-    status: "Concluído",
-    statusClass: "status-concluido",
+      "Modelagem 3D em Revit, otimização de processos de montagem e colaboração entre as equipes de produção e engenharia.",
   },
   {
-    periodo: "2021 — 2022",
+    periodo: "06/2021 — 12/2021",
     cargo: "Estagiário de Engenharia Civil",
     empresa: "Evolve Engenharia → Grupo Randon",
     local: "Caxias do Sul · RS",
     descricao:
-      "Acompanhamento de obras e gerenciamento de equipes em campo. Participação em reforma de pavilhões e outras instalações no Grupo Randon, envolvendo serviços como: instalações hidráulicas, elétricas, PPCI e infraestrutura de TI.",
-    status: "Concluído",
-    statusClass: "status-concluido",
+      "Acompanhamento de três obras, coordenando equipes de em média seis pessoas. Acompanhamento da execução de projetos de instalações hidráulicas, elétricas, PPCI e infraestrutura de TI.",
   },
 ];
 
@@ -58,10 +58,6 @@ export const Experience = () => {
             </p>
 
             <p className="timeline-desc">{experiencia.descricao}</p>
-
-            <span className={`status-badge ${experiencia.statusClass}`}>
-              <span className="status-dot" /> {experiencia.status}
-            </span>
           </div>
         ))}
       </div>
