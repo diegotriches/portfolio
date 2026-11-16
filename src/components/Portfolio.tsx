@@ -84,7 +84,8 @@ const PROJETOS: Projeto[] = [
 export const Portfolio = () => {
   return (
     <section id="portfolio" className="section">
-      <h2 className="eyebrow">PORTFÓLIO</h2>
+      <p className="eyebrow">PROJETOS</p>
+      <h2 className="section-title">Projetos em destaque</h2>
 
       <p className="projetos-nota">
         Os dois projetos foram desenvolvidos com apoio de IA (Claude Code). Eu

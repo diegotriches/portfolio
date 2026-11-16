@@ -1,7 +1,8 @@
 export const AboutMe = () => {
   return (
     <section className="section">
-      <h2 className="eyebrow">SOBRE MIM</h2>
+      <p className="eyebrow">SOBRE MIM</p>
+      <h2 className="section-title">Da engenharia ao código</h2>
       <p className="bio">
         Sou desenvolvedor full stack em formação, estudante de Análise e
         Desenvolvimento de Sistemas na Uninter, e engenheiro civil com mais de

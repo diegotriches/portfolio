@@ -1,12 +1,13 @@
 export const Contact = () => {
   return (
     <section id="contato" className="section contato-section">
-      <h2 className="eyebrow">CONTATO</h2>
-      <h3 className="contato-heading">Vamos conversar?</h3>
+      <p className="eyebrow">CONTATO</p>
+      <h2 className="contato-heading">Vamos conversar?</h2>
       <p className="bio">
-        Estou em busca de oportunidades como desenvolvedor de sistemas. Se
-        você tem um projeto, uma vaga ou só quer trocar uma ideia sobre
-        tecnologia, ficarei feliz em conversar.
+        Busco minha primeira posição como desenvolvedor full stack: remota, ou
+        presencial e híbrida em Farroupilha, Caxias do Sul e Bento Gonçalves.
+        Se você tem uma vaga ou quer trocar uma ideia sobre tecnologia, vou
+        ficar feliz em conversar.
       </p>
       <div className="contato-links">
         <a href="mailto:diego.rtriches@gmail.com" className="btn-pill btn-pill-solid">

@@ -12,9 +12,9 @@ type Section = {
 
 const SECTIONS: Section[] = [
   { id: "sobre", label: "Sobre mim" },
-  { id: "formacao", label: "Formação" },
-  { id: "portfolio", label: "Portfólio" },
-  { id: "experiencia", label: "Experiência" },
+  { id: "portfolio", label: "Projetos" },
+  { id: "habilidades", label: "Habilidades" },
+  { id: "trajetoria", label: "Trajetória" },
   { id: "contato", label: "Contato" },
 ];
 

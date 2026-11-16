@@ -1,35 +1,23 @@
-import { useState, useRef, useEffect } from "react";
 import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
 import fotoperfil from "../assets/fotoperfil.jpg";
 
+const ETIQUETAS = [
+  "📍 Farroupilha · RS",
+  "Remoto ou presencial",
+  "Inglês B2",
+  "CREA-RS ativo",
+];
+
+const REDES = [
+  { href: "https://github.com/diegotriches", label: "GitHub", icon: FaGithub },
+  { href: "https://linkedin.com/in/diego-triches", label: "LinkedIn", icon: FaLinkedin },
+  { href: "mailto:diego.rtriches@gmail.com", label: "E-mail", icon: FaEnvelope },
+];
+
 export const Hero = () => {
-  const [contactOpen, setContactOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(e.target as Node)
-      ) {
-        setContactOpen(false);
-      }
-    };
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setContactOpen(false);
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("keydown", handleEscape);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleEscape);
-    };
-  }, []);
-
-  const goToContactSection = () => {
-    setContactOpen(false);
+  const irParaProjetos = () => {
     document
-      .getElementById("contato")
+      .getElementById("portfolio")
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
@@ -58,11 +46,25 @@ export const Hero = () => {
           TypeScript, React, Next.js e PostgreSQL.
         </p>
 
+        <ul className="hero-etiquetas" aria-label="Informações rápidas">
+          {ETIQUETAS.map((etiqueta) => (
+            <li key={etiqueta}>{etiqueta}</li>
+          ))}
+        </ul>
+
         <div className="hero-cta">
+          <button
+            type="button"
+            className="btn-pill btn-pill-solid"
+            onClick={irParaProjetos}
+          >
+            Ver projetos
+          </button>
+
           <a
             href={`${import.meta.env.BASE_URL}cv.pdf`}
             download="Diego_da_Rosa_Triches_CV.pdf"
-            className="btn-pill btn-pill-solid"
+            className="btn-pill btn-pill-outline"
           >
             <span className="icon-download" aria-hidden="true">
               ↓
@@ -70,57 +72,21 @@ export const Hero = () => {
             Download do CV
           </a>
 
-          <div className="contact-dropdown" ref={dropdownRef}>
-            <button
-              type="button"
-              className="btn-pill btn-pill-outline"
-              onClick={() => setContactOpen((prev) => !prev)}
-              aria-haspopup="true"
-              aria-expanded={contactOpen}
-            >
-              Contato
-            </button>
-
-            {contactOpen && (
-              <div className="contact-dropdown-menu" role="menu">
-                <a
-                  href="mailto:diego.rtriches@gmail.com"
-                  className="contact-dropdown-item"
-                  role="menuitem"
-                >
-                  <FaEnvelope aria-hidden="true" />
-                  E-mail
-                </a>
-                <a
-                  href="https://linkedin.com/in/diego-triches"
-                  target="_blank"
-                  rel="noopener"
-                  className="contact-dropdown-item"
-                  role="menuitem"
-                >
-                  <FaLinkedin aria-hidden="true" />
-                  LinkedIn
-                </a>
-                <a
-                  href="https://github.com/diegotriches"
-                  target="_blank"
-                  rel="noopener"
-                  className="contact-dropdown-item"
-                  role="menuitem"
-                >
-                  <FaGithub aria-hidden="true" />
-                  GitHub
-                </a>
-                <button
-                  type="button"
-                  className="contact-dropdown-item contact-dropdown-item-ghost"
-                  role="menuitem"
-                  onClick={goToContactSection}
-                >
-                  Ver seção completa ↓
-                </button>
-              </div>
-            )}
+          <div className="hero-redes">
+            {REDES.map(({ href, label, icon: Icon }) => (
+              <a
+                key={label}
+                href={href}
+                className="btn-icone"
+                aria-label={label}
+                title={label}
+                {...(href.startsWith("http")
+                  ? { target: "_blank", rel: "noopener" }
+                  : {})}
+              >
+                <Icon aria-hidden="true" />
+              </a>
+            ))}
           </div>
         </div>
       </div>
