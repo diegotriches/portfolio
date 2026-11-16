@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useTheme } from "./../context/ThemeContext";
+import { useTheme } from "../context/theme";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { FiSun, FiMoon  } from "react-icons/fi";
 import "./TopBar.css";
@@ -37,7 +37,7 @@ export const TopBar = () => {
     opacity: 0,
   });
 
-  const measureIndicator = () => {
+  const measureIndicator = useCallback(() => {
     const navEl = navRef.current;
     const activeEl = linkRefs.current[activeSection];
     if (!navEl || !activeEl || !isHome) {
@@ -53,16 +53,16 @@ export const TopBar = () => {
       height: linkRect.height,
       opacity: 1,
     });
-  };
+  }, [activeSection, isHome]);
 
   useEffect(() => {
     measureIndicator();
-  }, [activeSection, isHome, menuOpen]);
+  }, [measureIndicator, menuOpen]);
 
   useEffect(() => {
     window.addEventListener("resize", measureIndicator);
     return () => window.removeEventListener("resize", measureIndicator);
-  }, [activeSection, isHome]);
+  }, [measureIndicator]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 8);
