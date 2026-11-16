@@ -28,7 +28,7 @@ export const Hero = () => {
           <span className="badge-dot">
             <span className="badge-dot-ping" />
           </span>
-          Disponível para trabalho remoto
+          Disponível para trabalho
         </span>
 
         <h1>
