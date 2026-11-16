@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Portfólio | Diego Triches</title>
+    <script>
+      // GitHub Pages não conhece as rotas do React Router: um acesso direto a
+      // /portfolio/projetos/x cai aqui. Redireciona para o app com o caminho na
+      // query (?/projetos/x), e o index.html restaura a URL original.
+      // Baseado em https://github.com/rafgraph/spa-github-pages
+      var pathSegmentsToKeep = 1; // "/portfolio"
+      var l = window.location;
+      l.replace(
+        l.protocol + "//" + l.hostname + (l.port ? ":" + l.port : "") +
+          l.pathname.split("/").slice(0, 1 + pathSegmentsToKeep).join("/") + "/?/" +
+          l.pathname.slice(1).split("/").slice(pathSegmentsToKeep).join("/").replace(/&/g, "~and~") +
+          (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+          l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
