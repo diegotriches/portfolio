@@ -33,7 +33,17 @@ There is no test suite. Run `npm run build` to type-check.
 - The CV is a separate page, [cv.html](cv.html) → [src/cv/Curriculo.tsx](src/cv/Curriculo.tsx) with its own A4 print styles in [src/cv/cv.css](src/cv/cv.css). It is not part of the site build; it is only served by Vite while generating the PDF.
 - `npm run cv` ([scripts/gerar-cv.mjs](scripts/gerar-cv.mjs)) starts a Vite server, prints `cv.html` with headless Edge/Chrome (`CV_BROWSER` overrides the path) and writes `public/cv.pdf`. `npm run deploy` runs it automatically.
 - `public/cv.pdf` is a generated file and is gitignored (each generation embeds a new timestamp, so tracking it left the tree dirty after every deploy). Run `npm run cv` once to make the "Download do CV" button work in `npm run dev`.
-- **Whenever content changes (projects, numbers, experience, skills, contact), update the data in `src/data/`, run `npm run cv`, and check the PDF still fits on 2 pages.**
+## Keeping everything in sync
+
+**Whenever content changes (projects, numbers, title, "about", experience, skills, availability, contact), update every place that shows it, in this order:**
+
+1. **Data in `src/data/`** (site and CV read from it).
+2. **CV PDF:** run `npm run cv` and check it still fits on 2 pages. The download on the site only updates after `npm run deploy`, so remind the user to deploy.
+3. **GitHub profile README** (repo `diegotriches/diegotriches`; local clone path in `NOTAS_CARREIRA.md`): same title, intro sentence and skill icons as the site. Work on a branch there too.
+4. **GitHub settings** (only the user can change them, on github.com): profile bio, repository descriptions and websites, pinned repositories. Give the user ready-to-paste text, then verify through the public API (`api.github.com/users/diegotriches` and `/repos`).
+5. **LinkedIn** (only the user can change it): headline, "About", experience and skills. Give ready-to-paste text in Portuguese.
+
+At the end, list which of these were updated and which are still pending.
 
 ## Content and privacy
 
