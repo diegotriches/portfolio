@@ -98,7 +98,7 @@ export const PROJETOS: Projeto[] = [
       "Vercel",
     ],
     demo: "https://myexpenses-app-ten.vercel.app/",
-    // Repositório ainda privado: adicionar `codigo` (e os `link` dos trechos) quando ficar público.
+    codigo: "https://github.com/diegotriches/myexpenses-app",
     curriculo: {
       subtitulo: "Aplicação web de controle financeiro",
       itens: [
@@ -182,6 +182,7 @@ export const PROJETOS: Projeto[] = [
             "Débito na conta, liberação do limite e baixa da fatura acontecem juntos ou não acontecem. O mesmo padrão protege estornos, adiantamentos e antecipações.",
           codigo: {
             arquivo: "app/api/cartoes/[id]/fatura/route.ts (simplificado)",
+            link: "https://github.com/diegotriches/myexpenses-app/blob/main/app/api/cartoes/%5Bid%5D/fatura/route.ts",
             trecho: `await db.transaction(async (tx) => {
   // Trava a fatura: um segundo clique espera aqui e recebe "já foi paga"
   const [atual] = await tx.select().from(faturas)
@@ -208,6 +209,7 @@ export const PROJETOS: Projeto[] = [
             "O valor líquido do resgate segue a regra da Receita para cada aporte, e rodar o cálculo de novo sempre dá o mesmo resultado. As regras têm testes automatizados.",
           codigo: {
             arquivo: "utils/aplicacaoSimulacao.ts (simplificado)",
+            link: "https://github.com/diegotriches/myexpenses-app/blob/main/utils/aplicacaoSimulacao.ts",
             trecho: `for (const lote of lotesDoMaisAntigo) {
   if (restante <= 0) break;
 
@@ -232,6 +234,7 @@ export const PROJETOS: Projeto[] = [
             "Importar de novo é seguro: o que já existe é contado como duplicado e ignorado, e o usuário vê o resumo do que entrou.",
           codigo: {
             arquivo: "app/api/renda-variavel/operacoes/importar/route.ts (simplificado)",
+            link: "https://github.com/diegotriches/myexpenses-app/blob/main/app/api/renda-variavel/operacoes/importar/route.ts",
             trecho: `const chavesExistentes = new Set(
   existentes.map((e) => e.origemImportacao).filter(Boolean),
 );
