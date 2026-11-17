@@ -19,7 +19,7 @@ export const PERFIL = {
   /** Parágrafos do "Sobre": no site viram dois parágrafos, no CV um só. */
   sobre: [
     "Desenvolvedor full stack em formação (Análise e Desenvolvimento de Sistemas, Uninter) e engenheiro civil com mais de três anos liderando obras. Construo e mantenho aplicações completas, web e mobile, com TypeScript, React, Next.js, React Native e PostgreSQL, do modelo de dados ao deploy.",
-    "Da engenharia, trago gestão de equipes e cronogramas, responsabilidade técnica e o hábito de resolver problemas reais sob pressão. Busco minha primeira posição como desenvolvedor, com interesse especial em produtos para construção civil, arquitetura e engenharia.",
+    "Da engenharia, trago gestão de equipes e cronogramas, responsabilidade técnica e o hábito de resolver problemas reais sob pressão. Busco minha primeira posição como desenvolvedor. Em produtos ligados à construção civil, arquitetura e engenharia, essa experiência de campo me permite agregar ainda mais.",
   ],
   /** Como o uso de IA é apresentado (site e CV usam o mesmo texto). */
   notaIA:
