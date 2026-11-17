@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 NOTAS_CARREIRA.md
+
+# CV gerado por `npm run cv` a partir de src/data/ (o deploy gera antes de publicar)
+public/cv.pdf

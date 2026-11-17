@@ -32,6 +32,7 @@ There is no test suite. Run `npm run build` to type-check.
 - The repository is the source of truth for the résumé. Data lives in `src/data/` ([perfil.ts](src/data/perfil.ts), [projetos.ts](src/data/projetos.ts), [trajetoria.ts](src/data/trajetoria.ts)) and feeds both the site and the CV.
 - The CV is a separate page, [cv.html](cv.html) → [src/cv/Curriculo.tsx](src/cv/Curriculo.tsx) with its own A4 print styles in [src/cv/cv.css](src/cv/cv.css). It is not part of the site build; it is only served by Vite while generating the PDF.
 - `npm run cv` ([scripts/gerar-cv.mjs](scripts/gerar-cv.mjs)) starts a Vite server, prints `cv.html` with headless Edge/Chrome (`CV_BROWSER` overrides the path) and writes `public/cv.pdf`. `npm run deploy` runs it automatically.
+- `public/cv.pdf` is a generated file and is gitignored (each generation embeds a new timestamp, so tracking it left the tree dirty after every deploy). Run `npm run cv` once to make the "Download do CV" button work in `npm run dev`.
 - **Whenever content changes (projects, numbers, experience, skills, contact), update the data in `src/data/`, run `npm run cv`, and check the PDF still fits on 2 pages.**
 
 ## Content and privacy
