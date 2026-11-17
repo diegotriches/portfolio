@@ -43,7 +43,7 @@ export const Hero = () => {
 
         <p className="hero-subtitle">
           Construo aplicações completas, do modelo de dados ao deploy, com
-          TypeScript, React, Next.js e PostgreSQL.
+          TypeScript, React, Node.js e PostgreSQL.
         </p>
 
         <ul className="hero-etiquetas" aria-label="Informações rápidas">

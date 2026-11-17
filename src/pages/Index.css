@@ -307,6 +307,10 @@
   overflow-wrap: break-word;
 }
 
+.coluna-titulo.skills-subtitulo {
+  margin-top: 2.25rem;
+}
+
 .skill-texto {
   display: flex;
   flex-direction: column;

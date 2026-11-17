@@ -39,7 +39,7 @@ export const EXPERIENCIAS: Experiencia[] = [
   },
   {
     periodo: "07/2022 — 01/2023",
-    cargo: "Estagiário de Instalações",
+    cargo: "Estagiário de Engenharia",
     empresa: "Global América",
     local: "Caxias do Sul · RS",
     principal: false,
@@ -51,7 +51,7 @@ export const EXPERIENCIAS: Experiencia[] = [
     periodo: "01/2022 — 07/2022",
     cargo: "Assistente de Projetos",
     empresa: "Bohm Indústria",
-    local: "Caxias do Sul · RS",
+    local: "Farroupilha · RS",
     principal: false,
     itens: [
       "Modelagem 3D em Revit, otimização de processos de montagem e colaboração entre as equipes de produção e engenharia.",
