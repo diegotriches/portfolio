@@ -3,7 +3,7 @@
 
 export const PERFIL = {
   nome: "Diego da Rosa Triches",
-  titulo: "Desenvolvedor Full Stack | Engenheiro Civil (CREA ativo)",
+  titulo: "Desenvolvedor Full Stack | Engenheiro Civil",
   cidade: "Farroupilha, RS",
   telefone: "(54) 9 9904-0694",
   email: "diego.rtriches@gmail.com",

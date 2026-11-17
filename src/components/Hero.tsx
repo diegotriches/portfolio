@@ -6,7 +6,6 @@ const ETIQUETAS = [
   "📍 Farroupilha · RS",
   "Remoto ou presencial",
   PERFIL.idioma,
-  "CREA-RS ativo",
 ];
 
 const REDES = [
